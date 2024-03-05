@@ -1,8 +1,13 @@
 class Pila<T> {
 
     private val cosas: MutableList<T> = mutableListOf()
+
     fun top(): T? {
-        return cosas.lastOrNull()
+        return if (!isEmpty()) {
+            cosas[cosas.size - 1]
+        } else {
+            null
+        }
     }
 
     fun push(cosa: T) {
@@ -17,7 +22,7 @@ class Pila<T> {
         }
     }
 
-    private fun isEmpty(): Boolean {
+    fun isEmpty(): Boolean {
         return cosas.isEmpty()
     }
 
